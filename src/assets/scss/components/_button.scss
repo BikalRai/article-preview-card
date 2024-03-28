@@ -1,0 +1,23 @@
+@mixin btn($bg-color: transparent, $color: #000) {
+  display: inline-block;
+  border: none;
+  border-radius: 50%;
+  background-color: $bg-color;
+  color: $color;
+  padding: $base-padding $base-padding * 2;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+@mixin btn-hover($bg-color: #000, $color: #fff) {
+  background-color: $bg-color;
+  color: $color;
+}
+
+.btn {
+  @include btn;
+
+  &:hover {
+    @include btn-hover;
+  }
+}

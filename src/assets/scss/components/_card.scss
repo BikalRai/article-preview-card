@@ -1,0 +1,17 @@
+@mixin card {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  box-shadow: 0 0.005rem 0.004px;
+}
+
+.card {
+  @include card;
+
+  .card__img {
+    img {
+      object-fit: cover;
+      object-position: right;
+    }
+  }
+}
