@@ -1,10 +1,11 @@
-import CardImage from './CardImage';
+import CardBody from "./CardBody";
+import CardImage from "./CardImage";
 
 const Card = () => {
   return (
-    <div className="card">
+    <div className='card'>
       <CardImage />
-      <div className="card__details">
+      {/* <div className="card__details">
         <h1 className="card__details--header">
           Shift the overall look and feel by adding these wonderful touches to
           furniture in your home
@@ -24,7 +25,8 @@ const Card = () => {
           </div>
           <button className="btn">share</button>
         </div>
-      </div>
+      </div> */}
+      <CardBody />
     </div>
   );
 };
