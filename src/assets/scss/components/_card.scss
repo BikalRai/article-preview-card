@@ -1,17 +1,135 @@
 @mixin card {
-  display: flex;
-  flex-direction: column;
-  background-color: red;
-  box-shadow: 0 0.005rem 0.004px;
+  display: grid;
+  grid-template-rows: 200px auto;
+  box-shadow: 0 1px 1px -1px;
+  border-radius: $base-border-radius * 0.75;
+  background-color: #fff;
 }
 
 .card {
   @include card;
 
   .card__img {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    border-radius: $base-border-radius * 0.75 $base-border-radius * 0.75 0 0;
+
     img {
       object-fit: cover;
-      object-position: right;
+      object-position: 100% 15%;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
     }
+  }
+
+  .card__details {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $d-grayish-blue;
+      line-height: 1.4rem;
+      padding: $base-padding * 2 $base-padding * 1.8 $base-padding;
+    }
+
+    p {
+      font-size: $body-font-size;
+      text-align: left;
+      color: $desat-dark-blue;
+      line-height: 1.3rem;
+      padding: 0 $base-padding * 1.8 $base-padding;
+    }
+  }
+}
+
+.card__details--info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem $base-padding * 1.8;
+  position: relative;
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: $base-margin;
+    font-size: $body-font-size;
+
+    .user__details {
+      display: flex;
+      flex-direction: column;
+      .name {
+        font-weight: 700;
+        color: $d-grayish-blue;
+        padding: 0;
+      }
+
+      p {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.share {
+  background-color: $d-grayish-blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  border-radius: 0 0 $base-border-radius * 0.75 $base-border-radius * 0.75;
+
+  padding: 1rem $base-padding * 1.8;
+
+  .share__items {
+    display: flex;
+    align-items: center;
+    gap: $base-margin;
+
+    span {
+      color: $grayish-blue;
+      font-size: $body-font-size;
+      font-weight: 500;
+      letter-spacing: 0.25rem;
+    }
+  }
+
+  button {
+    background-color: $desat-dark-blue;
+    color: #fff;
+  }
+}
+
+@media (min-width: 600px) {
+  @mixin card {
+    grid-template-rows: auto;
+    grid-template-columns: 40% 60%;
+    max-width: 678px;
+    margin: 0 auto;
+  }
+
+  .card {
+    @include card;
+
+    .card__img {
+      border-radius: $base-border-radius * 0.75 0 0 $base-border-radius * 0.75;
+      img {
+        object-position: 10% 100%;
+      }
+    }
+
+    .card__details {
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  ion-icon {
+    font-size: 1rem;
   }
 }
